@@ -3,7 +3,7 @@ void setup() {
   volatile uint32_t *gpio_out_en_reg = (volatile uint32_t *)0x3FF44020;
   // Set Pin 2 (LED) as OUTPUT
   *gpio_out_en_reg |= (1 << 2);
-  // Pin 4 is INPUT by default
+
 }
 
 void loop() {
