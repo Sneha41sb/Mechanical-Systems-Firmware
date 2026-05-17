@@ -12,7 +12,7 @@ void loop() {
   // Output Register (Changing the world)
   volatile uint32_t *gpio_out_reg = (volatile uint32_t *)0x3FF44004;
 
-  // THEORY: Is Pin 4 HIGH? 
+  
   if (*gpio_in_reg & (1 << 4)) {
       // Logic: If sensor is HIGH, blink/toggle LED
       *gpio_out_reg ^= (1 << 2); 
