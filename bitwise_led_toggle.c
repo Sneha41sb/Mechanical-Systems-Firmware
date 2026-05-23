@@ -7,17 +7,16 @@ void setup() {
 }
 
 void loop() {
-  // Input Register (Reading the world)
+ 
   volatile uint32_t *gpio_in_reg = (volatile uint32_t *)0x3FF4403C;
-  // Output Register (Changing the world)
+ 
   volatile uint32_t *gpio_out_reg = (volatile uint32_t *)0x3FF44004;
 
   
   if (*gpio_in_reg & (1 << 4)) {
-      // Logic: If sensor is HIGH, blink/toggle LED
+    
       *gpio_out_reg ^= (1 << 2); 
   } else {
-      // Logic: If sensor is LOW, force LED OFF (Emergency State)
       *gpio_out_reg &= ~(1 << 2);
   }
 
